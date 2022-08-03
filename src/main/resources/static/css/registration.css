@@ -1,0 +1,46 @@
+
+h2 {
+    font-family: Times, sans-serif;
+    font-weight: 400;
+    color: #586356;
+    text-align: center;
+    font-size: 40px;
+}
+
+h4 {
+    font-family: 'Brush Script MT', cursive;
+    font-weight: 379;
+    color: #fff;
+    font-size: 30px;
+    text-align: right;
+}
+
+h5 {
+    font-family: 'Brush Script MT', cursive;
+    font-weight: 379;
+    color: #fff;
+    font-size: 30px;
+    text-align: right;
+}
+
+.container {
+    background: rgb(171, 203, 178);
+    width: 70%;
+    height: 1000px;
+    margin-left: 200px;
+    margin-top: 60px;
+}
+
+
+.button{
+    width: 140px;
+    height: 40px;
+    margin-top: 40px;
+    background-color: #586356;
+    color: #fff;
+}
+
+.button:hover{
+    background-color: #fff;
+    color: #586356;
+}

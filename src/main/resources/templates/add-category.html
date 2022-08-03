@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commans::head"></head>
+<body>
+<header th:replace="fragments/commans::header"></header>
+<div class="container-apart">
+    <h2>ADD CATEGORY</h2>
+    <form th:action="@{/category-enter}" method="POST" th:object="${categoryDto}" >
+        <div>
+            <div class="col-auto">
+                <label for="inputCategoryName" class="col-form-label text-light"></label>
+            </div>
+            <div class="col-auto">
+                <input  th:field="*{categoryName}" th:errorclass="bg-danger"  type="text" name="categoryName" id="inputCategoryName" class="form-control"
+                        aria-describedby="CategoryNameHelpInline">
+            </div>
+            <div class="col-auto">
+                <small th:if="${#fields.hasErrors('categoryName')}" th:errors="*{categoryName}" id="categoryNameError" class="text-light form-text bg-danger rounded"></small>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            <button class="button" type="submit">SUBMIT</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

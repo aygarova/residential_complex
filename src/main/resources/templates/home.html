@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/home.css">
+    <title>HARMONY PARK</title>
+</head>
+<body>
+<header>
+<a style="float: left;" href="/">
+    <img src="/images/LOGO.jpg" alt="logo">
+</a>
+
+    <header th:replace="fragments/commans::nav"></header>
+
+</header>
+<div class="wrapper-video">
+    <video autoplay muted loop playsinline>
+        <source src="/images/bachgraund.mp4" type="video/mp4" />
+    </video>
+</div>
+<footer>
+    <div>
+        &copy; HARMONY PARK 2022
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+.container-input-apartment {
+    background: rgb(171, 203, 178);
+    width: 70%;
+    height: 490px;
+    margin-left: 200px;
+    margin-top: 60px;
+}
+
+.video-wrapper{
+    padding-left: 230px;
+    padding-top: 10px;
+}
+
+.another-number{
+    color: #586356;
+    text-decoration: none;
+    padding-left: 270px;
+}
+
+.another-number:hover{
+    color: #8d918d;
+}

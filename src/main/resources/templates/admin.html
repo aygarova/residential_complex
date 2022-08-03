@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commans::head"></head>
+<body>
+<header th:replace="fragments/commans::header"></header>
+<main>
+        <div class="admin-nav">
+                <a href="/users/all-owners">ALL OWNER</a>
+                <a href="/users/all-tenants">ALL TENANT</a>
+                <a href="/categories">CATEGORY</a>
+        </div>
+
+        <div class="admin-temp">
+                <img src="/images/Residential_Lobbycop.jpg">
+        </div>
+</main>
+</body>
+</html>

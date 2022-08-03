@@ -1,0 +1,35 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="fragments/commans::head"></head>
+
+    <body>
+        <div class="header">
+            <a style="float: left;" id="logo" href="/">
+                <img src="/images/backbroundGrey.jpg" alt="logo">
+            </a>
+            <header th:replace="fragments/commans::nav"></header>
+        </div>
+        
+        <section class="info">
+            <div><img src="/images/build.jpg" alt="build"></div>
+            <div><p>HARMONY PARK is a stylish and modern residential complex that is in harmony with nature and gives a feeling of calmness and comfort in the dynamic everyday life of a person in the big city.</p></div>
+        </section>
+
+        <section class="apartments">
+            <div><img src="/images/apart.jpg" alt="apartment"></div>
+            <div><p> Harmony Park is a gated residential complex and consists of a total of 75 apartments, of which 30 two-room, 25 three-room and 20 four-room apartments.</p></div>
+        </section>
+
+        <section class="cinema">
+            <div><img src="/images/Cinema.jpg" alt="cinema"></div>
+            <div><p> Residents of the complex can enjoy a summer cinema, which is located on the roof of the building.</p></div>
+        </section>
+        
+        <section class="reception">
+            <div><img src="/images/Residential_Lobbycop.jpg" alt="reception"></div>
+            <div><p> The complex has 24-hour reception, concierge, physical security and a specially designed security system.</p></div>
+        </section>
+
+    </body>
+    </html>

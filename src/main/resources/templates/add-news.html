@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commans::head"></head>
+<body>
+<header th:replace="fragments/commans::header"></header>
+<div class="registration container">
+    <h2>ADD NEWS</h2>
+    <div class="row g-3">
+        <form th:action="@{/news}" method="POST" th:object="${newsAddDto}">
+            <div>
+                <div class="col-auto">
+                    <label for="inputName" class="col-form-label text-light">Name</label>
+                </div>
+                <div class="col-auto">
+                    <input th:field="*{name}" th:errorclass="bg-danger" name="Name" type="text"
+                           id="inputName"
+                           class="form-control"
+                           aria-describedby="nameHelpInline">
+                </div>
+                <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
+                           class="text-light form-text bg-danger rounded">
+                        characters</small>
+                </div>
+            </div>
+
+            <div>
+                <div class="col-auto">
+                    <label for="inputDescriptions" class="col-form-label text-light">Descriptions</label>
+                </div>
+                <div class="col-auto">
+                    <input th:field="*{descriptions}" th:errorclass="bg-danger" name="descriptions" type="text"
+                           id="inputDescriptions"
+                           class="form-control"
+                           aria-describedby="descriptionsHelpInline">
+                </div>
+                <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('descriptions')}" th:errors="*{descriptions}" id="descriptionsError"
+                           class="text-light form-text bg-danger rounded">
+                        characters</small>
+                </div>
+            </div>
+
+            <div>
+
+                <div>
+                    <div class="col-auto">
+                        <label for="inputCategory" class="col-form-label text-light">Category</label>
+                    </div>
+                    <div class="col-auto">
+                        <input th:field="*{category}" th:errorclass="bg-danger" name="phone" type="text"
+                               id="inputCategory"
+                               class="form-control"
+                               aria-describedby="categoryHelpInline">
+                    </div>
+                    <div class="col-auto">
+                        <small th:if="${#fields.hasErrors('category')}" th:errors="*{category}"
+                               id="categoryError"
+                               class="text-light form-text bg-danger rounded">
+                        </small>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <button class="button" type="submit">ADD NEWS</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

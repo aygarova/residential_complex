@@ -1,0 +1,20 @@
+.admin-nav{
+    background: rgb(164, 197, 114);
+    margin-top: 20px;
+}
+
+.admin-nav a{
+    color: rgb(115, 119, 109);
+    text-decoration: none;
+    margin: 10px;
+    padding-left: 250px;
+}
+
+.admin-nav a:hover{
+    color: rgb(226, 226, 225);
+}
+
+.admin-temp img{
+    width: 60%;
+    margin-top: 4%;
+    margin-left: 20%;}

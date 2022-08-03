@@ -1,0 +1,55 @@
+
+body{
+    margin: 0;
+    padding: 2rem 12rem;
+    font-family: "Poppins", sans-serif;
+    background-image: url("/images/backbround.jpg");
+   background-size: cover;
+}
+a img{
+    width: 190px;
+}
+nav{
+    text-align: right;
+}
+nav ul{
+     float: right;
+
+}
+nav ul li{
+    display: inline-block;
+    padding: 0 10px;
+}
+
+nav ul li a{
+    color: rgb(117, 168, 41);
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color:salmon;
+}
+
+video {
+   
+    top: 70px;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    border: 3px solid rgb(117, 168, 41);;
+  }
+
+body header span a{
+    color:rgb(117, 168, 41);
+    padding: 0 20px;
+}
+
+body header span a:hover{
+    color:salmon;
+}
+
+footer{
+    text-align: right;
+    
+}
+

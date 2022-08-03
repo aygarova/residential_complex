@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commans::head"></head>
+
+<body>
+<header th:replace="fragments/commans::header"></header>
+<main>
+    <div class="home-container">
+        <h2>ALL Tenants</h2>
+        <div class="apart">
+            <div th:each="t :${tenants}" th:object="${t}" class="free-apart">
+                <div class="card-body">
+                    <div class="text-center">
+                        <p class="card-text-bold " th:text="|TENANT|"></p>
+                        <p class="card-text border-bottom " th:text="|First name: *{firstName}|"></p>
+                        <p class="card-text border-bottom " th:text="|Last name: *{lastName}|"></p>
+                        <p class="card-text border-bottom " th:text="|Username: *{username}|"></p>
+                        <p class="card-text border-bottom " th:text="|Phone number: *{phoneNumber}|"></p>
+                        <p class="card-text border-bottom" th:text="|Email: *{email}|"></p>
+                        <p class="card-text border-bottom" th:text="|Apartmets: *{apartmentsNumber}|"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

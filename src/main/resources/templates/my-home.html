@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commans::head"></head>
+
+<body>
+<header th:replace="fragments/commans::header"></header>
+<main>
+    <div class="home-container">
+        <h2>MY APARTMENT</h2>
+
+        <div class="apart-add">
+            <a href="/add-new-apartment-in-my-list">ADD YOUR NEW APARTMENT</a>
+        </div>
+
+        <div class="apart">
+            <div th:each="a :${apartments}" th:object="${a}" class="home-appart">
+                <div class="card-body">
+                    <div class="text-center">
+                        <p class="card-text-bold " th:text="|Apartment Number: *{apartmentNumber}|"></p>
+                        <p class="card-text border-bottom " th:text="|Area: *{area}|"></p>
+                        <p class="card-text border-bottom " th:text="|Floor: *{floor}|"></p>
+                        <p class="card-text border-bottom " th:text="|ApartmentType: *{apartmentType}|"></p>
+                        <p class="card-text border-bottom" th:text="|Status: *{status}|"></p>
+                        <p  th:unless="${a.tenant == null}" class="card-text border-bottom" th:text="|Tenant: *{tenant}|"></p>
+                        <div th:if="${a.tenant == null && a.status == 'Occupied'}"  class="d-flex justify-content-center mt-2">
+                            <button class="button-rent" type="submit">
+                                <a  th:href="@{/give-apartment-for-rent/{apartmentNumber}(apartmentNumber=*{apartmentNumber})}">GIVE APARTMENT FOR RENT</a>
+                            </button>
+                    </div>
+                        <div th:if="${a.status == 'FREE'}"  class="d-flex justify-content-center mt-2">
+                            <button class="button-rent" type="submit">
+                                <a  th:href="@{/back-apartment/{apartmentNumber}(apartmentNumber=*{apartmentNumber})}">BACK</a>
+                            </button>
+                        </div>
+                        <div class="distance"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</main>
+</body>
+</html>

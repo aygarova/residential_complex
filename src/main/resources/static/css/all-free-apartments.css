@@ -1,0 +1,40 @@
+.apart{
+    width: 65%;
+    padding-left: 490px;
+    padding-top: 20px;
+}
+
+.card-text-bold{
+    background: aliceblue;
+    text-decoration-style: solid;
+}
+
+.apart-add{
+    padding-left: 550px;
+}
+.apart-add a{
+    text-decoration: none;
+    color: rgb(164, 197, 114);
+}
+
+.apart-add a:hover{
+    color: #626762;
+}
+
+.free-apart{
+    background:rgb(164, 197, 114);
+}
+
+
+
+.button-rent a {
+    text-decoration: none;
+    color: #586356;
+}
+
+.button-rent a:hover{
+        color: #fff;
+
+}
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commans::head"></head>
+
+<body>
+<header th:replace="fragments/commans::header"></header>
+<main>
+    <div class="home-container">
+        <h2>CATEGORIES</h2>
+        <div class="apart-add">
+            <a href="/category-enter">ADD CATEGORY</a>
+        </div>        <div class="apart">
+            <p class="card-text-bold " th:text="|Category|"></p>
+            <div th:each="c :${categories}" th:object="${c}" class="free-apart">
+                <div class="card-body">
+                    <div class="text-center">
+                        <p class="card-text border-bottom" th:text="|category: *{categoryName}|"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

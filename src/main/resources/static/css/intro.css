@@ -1,0 +1,64 @@
+
+.info img{
+    float: right;
+    margin: 20px;
+    width: 50%;
+    border: 5px solid rgb(164, 197, 114); ;
+}
+
+.info p{
+    float: left;
+    margin: 87px;
+    width: 23%;
+    font-family: "MullerMedium";
+    font-size: x-large;
+    
+}
+
+.apartments img{
+    float: left;
+    margin: 20px;
+    width: 50%;
+    border: 5px solid rgb(164, 197, 114); 
+}
+
+.apartments p{
+    float: right;
+    margin: 120px;
+    width: 23%;
+    font-family: "MullerMedium";
+    font-size: x-large;
+    ;
+}
+
+.cinema img{
+    float: right;
+    margin: 20px;
+    width: 50%;
+    border: 5px solid rgb(164, 197, 114); ;
+}
+
+.cinema p{
+    float: left;
+    margin: 160px;
+    width: 23%;
+    font-family: "MullerMedium";
+    font-size: x-large;
+    
+}
+
+.reception img{
+    float: left;
+    margin: 20px;
+    width: 50%;
+    border: 5px solid rgb(164, 197, 114); 
+}
+
+.reception p{
+    float: right;
+    margin: 150px;
+    width: 23%;
+    font-family: "MullerMedium";
+    font-size: x-large;
+    ;
+}

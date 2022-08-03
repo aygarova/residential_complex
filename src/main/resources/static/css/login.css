@@ -1,0 +1,36 @@
+h2 {
+    font-family: Times, sans-serif;
+    font-weight: 400;
+    color: #586356;
+    text-align: center;
+    font-size: 40px;
+}
+
+.form-group{
+    color: #3c4b39;
+    text-decoration-style: solid;
+    margin-top: 30px;
+}
+
+
+.login-container{
+    background: rgb(171, 203, 178);
+    width: 70%;
+    height: 490px;
+    margin-left: 200px;
+    margin-top: 60px;
+}
+
+.button{
+    width: 140px;
+    height: 40px;
+    margin-left: 50px;
+    margin-top: 35px;
+    background-color: #586356;
+    color: #fff;
+}
+
+.button:hover{
+    background-color: #fff;
+    color: #586356;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commans::head"></head>
+
+<body>
+<header th:replace="fragments/commans::header"></header>
+<main>
+    <div class="rent-home-container">
+        <h2>MY RENT APARTMENT</h2>
+
+        <div class="apart">
+            <div th:each="a :${apartment}" th:object="${a}" class="home-appart">
+                <div class="card-body">
+                    <div class="text-center">
+                        <p class="card-text-bold " th:text="|Apartment Number: *{apartmentNumber}|"></p>
+                        <p class="card-text border-bottom " th:text="|Area: *{area}|"></p>
+                        <p class="card-text border-bottom " th:text="|Floor: *{floor}|"></p>
+                        <p class="card-text border-bottom " th:text="|ApartmentType: *{apartmentType}|"></p>
+                        <p class="card-text border-bottom" th:text="|Owner name: *{ownerName}|"></p>
+                        <p class="card-text border-bottom" th:text="|Owner email: *{ownerEmail}|"></p>
+                        <p class="card-text border-bottom" th:text="|Owner phone: *{ownerPhone}|"></p>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="button-rent" type="submit">
+                                <a th:href="@{/leaveApartment/{apartmentNumber}(apartmentNumber=*{apartmentNumber})}">LEAVE APARTMENT</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</main>
+</body>
+</html>
