@@ -28,7 +28,6 @@ public class UserDetailsImpl implements UserDetailsService {
                 findByUsername(username).
                 map(this::map).
                 orElse(null);
-                //orElseThrow(() -> new UsernameNotFoundException("User with username " + username + " not found!"));
     }
 
     private UserDetails map(Users userEntity) {

@@ -2,7 +2,6 @@ package com.example.copmprob.cotroller;
 
 import com.example.copmprob.model.dto.CategoryDto;
 import com.example.copmprob.model.dto.NewsAddDto;
-import com.example.copmprob.repository.NewsRepository;
 import com.example.copmprob.service.NewsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +32,9 @@ public class NewsController {
     }
 
     @GetMapping("add-news")
-    public String newsEnter(){
+    public String newsEnter(Model model){
+        model.addAttribute("category",newsService.findAllCategory());
+
         return "add-news";
     }
 
@@ -56,5 +57,9 @@ public class NewsController {
     @ModelAttribute
     public NewsAddDto newsAddDto(){
         return new NewsAddDto();
+    }
+    @ModelAttribute
+    public CategoryDto categoryDto(){
+        return new CategoryDto();
     }
 }

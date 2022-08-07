@@ -1,5 +1,7 @@
 package com.example.copmprob.service;
 
+import com.example.copmprob.exceptions.ExceptionMessages;
+import com.example.copmprob.exceptions.WrongActionException;
 import com.example.copmprob.model.dto.CategoryDto;
 import com.example.copmprob.model.entity.Category;
 import com.example.copmprob.repository.CategoryRepository;
@@ -30,8 +32,7 @@ public class CategoryService {
             if (!haveThisCategory(categoryDto.getCategoryName())){
                 categoryRepository.save(modelMapper.map(categoryDto,Category.class));
             }
-            //todo exception
-            System.out.printf("Have this category!");
+        throw new WrongActionException(ExceptionMessages.CATEGORY_ALREADY_EXIST_EXCEPTIONS);
     }
 
     public boolean haveThisCategory(String name){

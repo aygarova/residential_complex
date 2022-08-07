@@ -1,5 +1,7 @@
 package com.example.copmprob.service;
 
+import com.example.copmprob.exceptions.ExceptionMessages;
+import com.example.copmprob.exceptions.WrongActionException;
 import com.example.copmprob.model.dto.UserDto;
 import com.example.copmprob.model.dto.UserLoginDto;
 import com.example.copmprob.model.dto.UserWithApartmentDto;
@@ -48,16 +50,17 @@ public class UserService {
         };
 
         Users user = modelMapper.map(userDto, Users.class);
+        if (user.getEmail().equals(userRepository.getUsersByUsername(user.getUsername()).getEmail())){
+            throw new WrongActionException(ExceptionMessages.EMAIL_ALREADY_EXIST_EXCEPTIONS);
+        }
+        if (user.getUsername().equals(userRepository.getUsersByUsername(user.getUsername()).getUsername())){
+            throw new WrongActionException(ExceptionMessages.USERNAME_ALREADY_EXIST_EXCEPTIONS);
+        }
         user.setRole(roleEnum);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
     }
-
-//    public Users findByUsernameAndPassword(String username, String password) {
-//        return userRepository.findByUsernameAndPassword(username,password)
-//                .orElse(null);
-//    }
 
     public boolean loginUser(UserLoginDto userDto) {
         Users newUser = new Users();
@@ -86,7 +89,6 @@ public class UserService {
                 getContext().
                 setAuthentication(auth);
 
-        System.out.printf("LOG IN -------------------------------------------");
         return true;
     }
 

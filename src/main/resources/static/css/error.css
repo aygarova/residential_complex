@@ -1,0 +1,22 @@
+.fixing{
+    margin-left: 460px;
+    width: 460px;
+}
+.home-page a{
+    color: #3c4b39;
+    text-decoration: none;
+    margin-left: 600px;
+}
+
+.home-page a:hover{
+    color: #8d918d;
+}
+
+.error-404{
+    margin-left: 330px;
+}
+
+.error-500{
+    margin-left: 391px;
+    width: 600px;
+}

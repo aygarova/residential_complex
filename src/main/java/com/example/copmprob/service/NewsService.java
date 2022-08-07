@@ -1,5 +1,7 @@
 package com.example.copmprob.service;
 
+import com.example.copmprob.exceptions.ExceptionMessages;
+import com.example.copmprob.exceptions.WrongActionException;
 import com.example.copmprob.model.dto.NewsAddDto;
 import com.example.copmprob.model.entity.Category;
 import com.example.copmprob.model.entity.News;
@@ -31,15 +33,20 @@ public class NewsService {
         return newsRepository.findAll();
     }
 
+    public List<Category> findAllCategory() {
+        return categoryRepository.findAll();
+    }
+
     public void addThisNews(NewsAddDto newsAddDto) {
-        List<News> allNews = newsRepository.findAll();
-        if (allNews.isEmpty()){
-            saveThisNews(newsAddDto);
-        }
         if (!haveThisNews(newsAddDto.getName(), newsAddDto.getDescriptions())){
-            saveThisNews(newsAddDto);
+           if (categoryService.haveThisCategory(newsAddDto.getCategory())){
+               saveThisNews(newsAddDto);
+           }else {
+               throw new WrongActionException(ExceptionMessages.CATEGORY_NOT_FOUND_EXCEPTION);
+           }
+        }else {
+            throw new WrongActionException(ExceptionMessages.NEWS_ALREADY_EXIST_EXCEPTIONS);
         }
-        //todo exception
     }
 
     private boolean haveThisNews(String name, String descriptions) {
@@ -57,7 +64,9 @@ public class NewsService {
         if (categoryService.haveThisCategory(newsAddDto.getCategory())){
             Category category = categoryRepository.findCategoriesByCategoryName(newsAddDto.getCategory());
             news.setCategory(category);
-        } // todo exception
+        } else {
+            throw new WrongActionException(ExceptionMessages.CATEGORY_NOT_FOUND_EXCEPTION);
+        }
         news.setAuthor(apartmentService.findCurrentUser());
         newsRepository.save(news);
     }

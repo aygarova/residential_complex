@@ -1,5 +1,7 @@
 package com.example.copmprob.service;
 
+import com.example.copmprob.exceptions.ExceptionMessages;
+import com.example.copmprob.exceptions.WrongActionException;
 import com.example.copmprob.model.dto.ApartmentEnterDto;
 import com.example.copmprob.model.dto.ApartmentFreeTenantDto;
 import com.example.copmprob.model.dto.ApartmentViewDto;
@@ -42,7 +44,10 @@ public class ApartmentService {
 
     public boolean hasThisApartmentNumber(ApartmentEnterDto apartmentEnterDto){
         Apartment apartment = apartmentRepository.findApartmentByApartmentNumber(apartmentEnterDto.getApartmentNumber());
-        return apartment != null;
+        if (apartment == null){
+            throw new WrongActionException(ExceptionMessages.APARTMENT_NOT_FOUND_EXCEPTION);
+        }
+        return true;
     }
 
     public boolean hasThisApartmentOwner(ApartmentEnterDto apartmentEnterDto)  {

@@ -1,9 +1,7 @@
 package com.example.copmprob.cotroller;
 
-import com.example.copmprob.exceptions.ThisApartmentHasOwnerException;
 import com.example.copmprob.model.dto.ApartmentEnterDto;
 import com.example.copmprob.model.dto.ApartmentFreeTenantDto;
-import com.example.copmprob.model.dto.UserLoginDto;
 import com.example.copmprob.service.ApartmentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

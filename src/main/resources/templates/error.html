@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commans::head"></head>
+<body>
+<header th:replace="fragments/commans::header"></header>
+<main>
+<h2>OOPS... HAVE PROBLEM</h2>
+<h2 th:text="|Error: ${message}|"></h2>
+<img class="fixing" src="/images/exception.mp4" alt="Exception gif">
+
+    <p class="home-page"><a href="/">GO TO HOME PAGE</a></p>
+
+
+</main>
+</body>
+</html>

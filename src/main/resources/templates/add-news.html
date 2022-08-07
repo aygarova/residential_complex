@@ -6,6 +6,17 @@
 <header th:replace="fragments/commans::header"></header>
 <div class="registration container">
     <h2>ADD NEWS</h2>
+
+    <div class="apart">
+        <h6>ALL CATEGORIES</h6>
+        <div th:each="c :${category}" th:object="${c}" class="free-apart">
+            <div class="card-body">
+                <div class="text-center">
+                    <p class="card-text border-bottom " th:text="|Name: *{categoryName}|"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row g-3">
         <form th:action="@{/news}" method="POST" th:object="${newsAddDto}">
             <div>
