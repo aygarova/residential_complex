@@ -12,6 +12,14 @@ public class UserLoginDto {
     @Size(min = 6, max = 20, message = "Password must be between 6 and 20 elements")
     private String password;
 
+    public UserLoginDto() {
+    }
+
+    public UserLoginDto(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public String getUsername() {
         return username;
     }

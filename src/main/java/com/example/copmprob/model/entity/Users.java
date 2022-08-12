@@ -46,6 +46,18 @@ public class Users {
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     private Set<News> news;
 
+    public Users() {
+    }
+
+    public Users(String username, String firstName, String lastName, String password, String phoneNumber, String email, RoleEnum role) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.role = role;
+    }
 
     public long getId() {
         return id;

@@ -17,6 +17,20 @@ public class ApartmentFreeTenantDto {
 
     private String ownerPhone;
 
+    public ApartmentFreeTenantDto() {
+    }
+
+    public ApartmentFreeTenantDto(String apartmentNumber, double area, int floor, String apartmentType, String status, String ownerName, String ownerEmail, String ownerPhone) {
+        this.apartmentNumber = apartmentNumber;
+        this.area = area;
+        this.floor = floor;
+        this.apartmentType = apartmentType;
+        this.status = status;
+        this.ownerName = ownerName;
+        this.ownerEmail = ownerEmail;
+        this.ownerPhone = ownerPhone;
+    }
+
     public String getApartmentNumber() {
         return apartmentNumber;
     }

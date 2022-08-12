@@ -19,14 +19,24 @@ public class News {
     @Column(name = "activate_from", nullable = false, columnDefinition = "DATE")
     private LocalDate dateFrom = LocalDate.now();
 
-    @Column(name = "activate_to", nullable = false, columnDefinition = "DATE")
-    private LocalDate  dateTo = LocalDate.now().plusDays(30);
 
     @ManyToOne
     private Category category;
 
     @ManyToOne
     private Users author;
+
+    public News() {
+
+    }
+    public News(long id, String name, String descriptions, LocalDate dateFrom, Category category, Users author) {
+        this.id = id;
+        this.name = name;
+        this.descriptions = descriptions;
+        this.dateFrom = dateFrom;
+        this.category = category;
+        this.author = author;
+    }
 
     public long getId() {
         return id;
@@ -58,14 +68,6 @@ public class News {
 
     public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
-    }
-
-    public LocalDate getDateTo() {
-        return dateTo;
-    }
-
-    public void setDateTo(LocalDate dateTo) {
-        this.dateTo = dateTo;
     }
 
     public Category getCategory() {

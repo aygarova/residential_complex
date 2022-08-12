@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class UserDto {
+    private long id;
     @NotBlank(message = "First name can't be empty")
     @Size(min = 3, message = "First name must be more than 3 elements")
     private String firstName;
@@ -44,7 +45,8 @@ public class UserDto {
         this.password = password;
     }
 
-    public UserDto(String firstName, String lastName, String username, String password, String confirmPassword, String phoneNumber, String email, String role) {
+    public UserDto(long id, String firstName, String lastName, String username, String password, String confirmPassword, String phoneNumber, String email, String role) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

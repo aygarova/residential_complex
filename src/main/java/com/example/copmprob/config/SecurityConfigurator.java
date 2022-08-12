@@ -34,12 +34,10 @@ public class SecurityConfigurator extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .antMatchers("/","/contacts","/intro", "/users/login", "/users/register").permitAll()
-//                .antMatchers("/js/**", "/css/**", "/images/**", "/videos/**").permitAll()
                 .antMatchers("/users/logout").hasAnyRole(RoleEnum.OWNER.name(),RoleEnum.TENANT.name(), RoleEnum.ADMIN.name())
                 .antMatchers("/users/owner","/my-apartment" , "/apartment-number-enter", "/add-new-apartment-in-my-list","/give-apartment-for-rent/{apartmentNumber}", "/back-apartment/{apartmentNumber}").hasRole(RoleEnum.OWNER.name())
                 .antMatchers("/all-free-apartment","/rentApartment/{apartmentNumber}" , "/leaveApartment/{apartmentNumber}").hasRole(RoleEnum.TENANT.name())
                 .antMatchers("/users/admin","/users/all-owners" , "/users/all-tenants", "/categories", "/category-enter").hasRole(RoleEnum.ADMIN.name())
-//                .antMatchers("/routes/**", "/api/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -56,15 +54,6 @@ public class SecurityConfigurator extends WebSecurityConfigurerAdapter {
                 .deleteCookies("time")
                 .deleteCookies("JSESSIONID");
     }
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .userDetailsService(userDetailsService)
-//                .passwordEncoder(bCryptPasswordEncoder);
-//
-//    }
-
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {

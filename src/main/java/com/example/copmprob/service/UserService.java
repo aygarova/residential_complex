@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserService {
@@ -43,23 +44,36 @@ public class UserService {
     }
 
     public void registerUser(UserDto userDto) {
-        RoleEnum roleEnum = switch (userDto.getRole()){
-            case "OWNER" -> RoleEnum.OWNER;
-            case "TENANT" -> RoleEnum.TENANT;
-            default -> RoleEnum.ADMIN;
-        };
+        RoleEnum roleEnum = chooseRole(userDto.getRole());
 
         Users user = modelMapper.map(userDto, Users.class);
-        if (user.getEmail().equals(userRepository.getUsersByUsername(user.getUsername()).getEmail())){
-            throw new WrongActionException(ExceptionMessages.EMAIL_ALREADY_EXIST_EXCEPTIONS);
-        }
-        if (user.getUsername().equals(userRepository.getUsersByUsername(user.getUsername()).getUsername())){
+        Users userWithThisUsername = userRepository.findByUsername(user.getUsername()).orElse(null);
+        Users usersWithThisEmail = userRepository.findByEmail(user.getEmail()).orElse(null);
+        if (!Objects.isNull(userWithThisUsername)){
             throw new WrongActionException(ExceptionMessages.USERNAME_ALREADY_EXIST_EXCEPTIONS);
         }
+        if (!Objects.isNull(usersWithThisEmail)){
+            throw new WrongActionException(ExceptionMessages.EMAIL_ALREADY_EXIST_EXCEPTIONS);
+        }
+
         user.setRole(roleEnum);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
+    }
+
+    protected RoleEnum chooseRole(String role) {
+        switch (role) {
+            case "OWNER" -> {
+                return RoleEnum.OWNER;
+            }
+            case "TENANT" -> {
+                return RoleEnum.TENANT;
+            }
+            default -> {
+                return RoleEnum.ADMIN;
+            }
+        }
     }
 
     public boolean loginUser(UserLoginDto userDto) {
@@ -143,4 +157,3 @@ public class UserService {
     }
 
 }
-

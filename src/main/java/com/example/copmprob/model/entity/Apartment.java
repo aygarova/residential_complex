@@ -36,6 +36,25 @@ public class Apartment {
     @JoinColumn(name = "tenant_id", referencedColumnName = "id")
     private Users tenant;
 
+    public Apartment() {
+    }
+
+    public Apartment(
+            long id,
+            String apartmentNumber,
+            double area,
+            int floor,
+            ApartmentType apartmentType,
+            StatusEnum status
+    ) {
+        this.id = id;
+        this.apartmentNumber = apartmentNumber;
+        this.area = area;
+        this.floor = floor;
+        this.apartmentType = apartmentType;
+        this.status = status;
+    }
+
     public long getId() {
         return id;
     }

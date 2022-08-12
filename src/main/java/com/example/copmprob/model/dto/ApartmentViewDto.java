@@ -17,6 +17,18 @@ public class ApartmentViewDto {
 
     private String  tenant;
 
+    public ApartmentViewDto() {
+    }
+
+    public ApartmentViewDto(String apartmentNumber, double area, int floor, String apartmentType, String status, String tenant) {
+        this.apartmentNumber = apartmentNumber;
+        this.area = area;
+        this.floor = floor;
+        this.apartmentType = apartmentType;
+        this.status = status;
+        this.tenant = tenant;
+    }
+
     public String getApartmentNumber() {
         return apartmentNumber;
     }
