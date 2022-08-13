@@ -89,14 +89,6 @@ public class UserController {
     }
 
 
-//    public String loginConfirm(@Valid UserDto userDto) {
-//
-//        userService.loginUser(userDto);
-//        return "redirect:/";
-//    }
-
-
-
     @GetMapping("/logout")
     public String logout(HttpSession httpSession){
         httpSession.invalidate();
@@ -141,11 +133,5 @@ public class UserController {
     public UserWithApartmentDto allOwnersDto(){
         return new UserWithApartmentDto();
     }
-
-//    @ModelAttribute
-//    public UserLoginDto userLoginDto(){
-//        return new UserLoginDto();
-//    }
-
 
 }

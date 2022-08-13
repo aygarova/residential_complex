@@ -107,7 +107,7 @@ public class UserService {
     }
 
 
-    public void initFirstUser() throws Exception {
+    public void initFirstUser() {
         if (this.userRepository.count() == 0) {
 
             Users user = new Users();
@@ -148,8 +148,10 @@ public class UserService {
                 apartmentNumber.add(a.getApartmentNumber());
             }
         } else if (user.getRole().equals(RoleEnum.TENANT)) {
-           Apartment apartment = apartmentRepository.findUsersApartmentByTenantId(user.getId());
-           apartmentNumber.add(apartment.getApartmentNumber());
+            if (user.getRentApartments() != null){
+                Apartment apartment = apartmentRepository.findUsersApartmentByTenantId(user.getId());
+                apartmentNumber.add(apartment.getApartmentNumber());
+            }
         }
 
         userWithApartmentDto.setApartmentsNumber(apartmentNumber);
